@@ -1,0 +1,162 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Barra superior */
+.top-bar {
+  background-color: #333333;
+  padding: 10px 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.top-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.top-link:hover {
+  color: #00bcd4;
+}
+
+/* Fonte e corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  background: url('/static/img/ice.jpg') no-repeat center center fixed; /* Define a imagem como fundo */
+  background-size: cover; /* Faz a imagem cobrir toda a tela */
+  line-height: 1.6;
+}
+
+/* Container geral */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Cabeçalho */
+header {
+  background: rgba(40, 40, 40, 0.8); /* Tornar o cabeçalho semi-transparente */
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Special Elite', sens-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00bcd4;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s;
+}
+
+nav ul li a:hover {
+  background: #00bcd4;
+  color: #282828;
+  border-radius: 5px;
+}
+
+/* Botão do menu responsivo */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background: #ffffff;
+  display: block;
+  position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  width: 25px;
+  height: 3px;
+  background: #ffffff;
+  position: absolute;
+  left: 0;
+  transition: 0.3s;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+/* Menu oculto por padrão */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(40, 40, 40, 0.9); /* Fundo semi-transparente no menu */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul li {
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 1rem;
+    width: 100%;
+  }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mercado Livre de Arinar</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <script defer src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+
+  <!-- Barra Superior -->
+  <div class="top-bar">
+    <div class="container">
+      <a href="#" class="top-link">Discord</a>
+      <a href="#" class="top-link">Instagram</a>
+      {% if session.get('username') %}
+        <span class="top-link">Bem-vindo, {{ session['username'] }}</span>
+        <a href="{{ url_for('logout') }}" class="top-link">Sair</a>
+      {% else %}
+        <a href="{{ url_for('login') }}" class="top-link">Login</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Exibição de Mensagens Flash -->
+  <div class="flash-messages">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="flash {{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">Mercado Livre de Arinar</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="#itens">Itens</a></li>
+          <li><a href="#contas">Contas</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Bem-vindo ao Mercado Livre de Arinar</h1>
+      <p>O melhor lugar para comprar e vender contas, itens e serviços de Warspear Online.</p>
+      <a href="#itens" class="btn">Explorar Ofertas</a>
+      <a href="{{ url_for('anunciar') if session.get('username') else url_for('login') }}" class="btn-secondary">
+        Anunciar Agora
+      </a>
+    </div>
+  </section>
+
+  <!-- Itens Disponíveis -->
+  <section class="itens-disponiveis" id="itens">
+    <div class="container">
+      <h2>Anúncios Disponíveis</h2>
+      <div class="anuncios-grid">
+        {% for anuncio in anuncios %}
+          <div class="anuncio">
+            <a href="{{ url_for('detalhes_anuncio', anuncio_id=anuncio[0]) }}">
+                {% if anuncio[3] %}
+                  <img src="{{ url_for('uploaded_file', filename=anuncio[3]) }}" alt="Imagem do anúncio">
+                {% else %}
+                  <img src="{{ url_for('static', filename='images/default-image.jpg') }}" alt="Imagem padrão">
+                {% endif %}
+              <p><strong>{{ anuncio[1] }}</strong></p>
+              <p>{{ anuncio[2] }}</p>
+              <p>Criado por: {{ anuncio[4] }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Mercado Livre de Arinar. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

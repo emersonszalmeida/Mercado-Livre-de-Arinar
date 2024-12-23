@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/registro.css') }}">
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  
+  <title>Registro</title>
+</head>
+<body>
+  <!-- Barra Superior -->
+  <div class="top-bar">
+    <div class="container">
+      <a href="#" class="top-link">Discord</a>
+      <a href="#" class="top-link">Instagram</a>
+      {% if session.get('username') %}
+        <span class="top-link">Bem-vindo, {{ session['username'] }}</span>
+        <a href="{{ url_for('logout') }}" class="top-link">Sair</a>
+      {% else %}
+        <a href="{{ url_for('login') }}" class="top-link">Login</a>
+      {% endif %}
+    </div>
+  </div>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">WS Trade</div>
+      <!-- Menu principal -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="#itens">Itens</a></li>
+          <li><a href="#contas">Contas</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <!-- Botão do menu responsivo -->
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+  <!-- Formulário de Registro -->
+  <div class="form-container">
+  <h2>Registro</h2>
+    {% if erro %}
+        <p style="color: red;">{{ erro }}</p>
+    {% endif %}
+    <form method="POST" action="{{ url_for('registro') }}">
+        <label for="username">Nome de Usuário:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+        <label for="confirm-password">Confirme a Senha:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+        <button type="submit">Registrar</button>
+    </form>
+  <p>Já tem uma conta? <a href="{{ url_for('login') }}">Faça login</a></p></div>
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2024 Arinar DeepWeb. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

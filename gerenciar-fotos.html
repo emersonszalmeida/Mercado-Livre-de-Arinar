@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Fotos</title>
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="gerenciar-fotos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <script defer src="gerenciar-fotos.js"></script>
+</head>
+<body>
+
+  <!-- Barra superior com links de Discord, Instagram, Registro e Login -->
+  <div class="top-bar">
+    <div class="container">
+      <a href="https://discord.com" target="_blank" class="top-link">Discord</a>
+      <a href="https://instagram.com" target="_blank" class="top-link">Instagram</a>
+      <a href="registro.html" class="top-link">Registre-se</a>
+      <a href="login.html" class="top-link">Login</a>
+    </div>
+  </div>
+  
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">WS Trade</div>
+      <!-- Menu principal -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#itens">Itens</a></li>
+          <li><a href="#contas">Contas</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <!-- Botão do menu responsivo -->
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <div class="form-container">
+    <h2 class="page-title">Gerenciar Fotos</h2>
+
+    <!-- Área de Upload -->
+    <div id="drop-area">
+      <p id="upload-message">Clique aqui ou arraste e solte os arquivos aqui para enviar!</p>
+      <input type="file" id="file-input" multiple accept="image/*">
+    </div>
+
+    <!-- Mensagem Inicial -->
+    <p id="no-images">Não existe nenhuma foto carregada para esse anúncio.</p>
+
+    <!-- Pré-visualização -->
+    <div id="image-preview" class="sortable"></div>
+
+    <!-- Botão de Salvar -->
+    <button id="save-button">Salvar Anúncio</button>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2024 Arinar DeepWeb. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

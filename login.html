@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/registro.css') }}">
+  <script defer src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <title>Login</title>
+</head>
+<body>
+  <!-- Barra Superior -->
+  <div class="top-bar">
+    <div class="container">
+      <a href="#" class="top-link">Discord</a>
+      <a href="#" class="top-link">Instagram</a>
+      <a href="{{ url_for('registro') }}" class="top-link">Registro</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">WS Trade</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="#itens">Itens</a></li>
+          <li><a href="#contas">Contas</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Formulário de Login -->
+  <div class="form-container">
+    <h2>Login</h2>
+    {% if erro %}
+      <p class="error">{{ erro }}</p>
+    {% endif %}
+    <form action="{{ url_for('login') }}" method="POST">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu email">
+
+      <label for="password">Senha</label>
+      <input type="password" id="password" name="password" placeholder="Digite sua senha">
+
+      <button type="submit">Entrar</button>
+    </form>
+    <p>Não tem uma conta? <a href="{{ url_for('registro') }}">Registre-se</a></p>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2024 Arinar DeepWeb. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

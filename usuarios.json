@@ -1,0 +1,27 @@
+[
+    {
+        "username": "Joao",
+        "email": "joao@gmail.com",
+        "password": "$2y$10$6yVGBPWFh8.telkbRfdRW.PVOAoUfgViyvwf6kR0vEEn/gnMm7YCq"
+    },
+    {
+        "username": "G",
+        "email": "g@gmail.com",
+        "password": "scrypt:32768:8:1$artiZDOxe65Zieu3$f1813f39a26f2aaf97bace51a8158db823b2d1c16d807414cd91f8a52b68ef9569d1f02b835a6f77379bce9ffbad28d446dac7a4d32c7f4a029f47ab25a1ebcc"
+    },
+    {
+        "username": "Adm",
+        "email": "adm@gmail.com",
+        "password": "scrypt:32768:8:1$ca11EvUtOB4fdj2X$af6a4362a46f33bf496689520d18bdb4d0c695d0509ed46241e7caa2acd8353fecede45422d9cd710e88f212c200f571c580f8118ea45214aca5ce7726e8817c"
+    },
+    {
+        "username": "Jaqueline oliveira",
+        "email": "jaquelineoliveira1407@gmail.com",
+        "password": "scrypt:32768:8:1$iKnH3ois8aM6c9yF$c4e9f50033cf1134d894e6219fab1a3accc2e198517febf0117163d036accd195d346f58344c63ae71561c2f8104860945e0c45ecb75983044a089401b113aa4"
+    },
+    {
+        "username": "Emerson",
+        "email": "emersonszalmeida@gmail.com",
+        "password": "scrypt:32768:8:1$0UfjM6opCofnNKty$1a44703bcceddd5d42633a62d66f986020ef9d178e03ee4fa3d26b0bc68a6b5834734630d66414f9d58b910a24819663da8b4fa771d5d5d5e67ea36d39933983"
+    }
+]

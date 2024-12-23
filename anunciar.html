@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/anunciar.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <script defer src="{{ url_for('static', filename='js/anunciar.js') }}"></script>
+  <title>Anunciar</title>
+</head>
+<body>
+  <!-- Barra Superior -->
+  <div class="top-bar">
+    <div class="container">
+      <a href="#" class="top-link">Discord</a>
+      <a href="#" class="top-link">Instagram</a>
+      {% if session.get('username') %}
+        <span class="top-link">Bem-vindo, {{ session['username'] }}</span>
+        <a href="{{ url_for('logout') }}" class="top-link">Sair</a>
+      {% else %}
+        <a href="{{ url_for('login') }}" class="top-link">Login</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">WS Trade</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="#itens">Itens</a></li>
+          <li><a href="#contas">Contas</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Formulário de Anúncio -->
+  <div class="form-container">
+    <h2>Cadastro de Anúncio</h2>
+    <form action="{{ url_for('anunciar') }}" method="post" enctype="multipart/form-data">
+      <!-- Tipo de Anúncio -->
+      <div class="form-group">
+        <label for="tipo-anuncio">Tipo de Anúncio</label>
+        <select id="tipo-anuncio" name="tipo-anuncio" onchange="mostrarCategorias()" required>
+          <option value="">Selecione</option>
+          <option value="conta">Conta</option>
+          <option value="itens">Itens</option>
+          <option value="gold">Gold</option>
+          <option value="outros">Outros</option>
+        </select>
+      </div>
+
+      <!-- Categoria do Anúncio -->
+      <div class="form-group">
+        <label for="categoria">Categoria</label>
+        <select id="categoria" name="categoria" required>
+          <option value="">Selecione</option>
+        </select>
+      </div>
+
+      <!-- Nome do Anúncio -->
+      <div class="form-group">
+        <label for="nome-anuncio">Nome do Anúncio</label>
+        <input type="text" id="nome-anuncio" name="nome-anuncio" required>
+      </div>
+
+      <!-- Valor -->
+      <div class="form-group">
+        <label for="valor">Valor (R$)</label>
+        <input type="text" id="valor" name="valor" placeholder="0,00" oninput="formatarValor(this)" required>
+      </div>
+
+      <!-- Quantidade em Estoque -->
+      <div class="form-group">
+        <label for="quantidade">Quantidade em Estoque</label>
+        <input type="number" id="quantidade" name="quantidade" min="1" value="1" required>
+      </div>
+
+      <!-- Área de Upload -->
+      <div id="drop-area">
+        <p id="upload-message">Clique aqui ou arraste e solte os arquivos aqui para enviar!</p>
+        <input type="file" id="file-input" name="imagens[]" multiple accept="image/*" required>
+      </div>
+
+      <!-- Mensagem Inicial -->
+      <p id="no-images">Nenhuma foto carregada para este anúncio.</p>
+
+      <!-- Pré-visualização -->
+      <div id="image-preview" class="sortable"></div>
+
+      <!-- Mensagem sobre Contatos Pessoais -->
+      <p class="descricao-mensagem">
+        Adicionar contatos pessoais como WhatsApp, Discord, Facebook ou qualquer outro meio de comunicação fará com que o seu anúncio seja reprovado.
+      </p>
+
+      <!-- Descrição -->
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao" rows="6" required></textarea>
+      </div>
+
+      <!-- Aceitar Termos e Condições -->
+      <div class="form-group">
+        <input type="checkbox" id="termos" name="termos" required>
+        <label for="termos">Eu estou ciente dos termos e condições</label>
+      </div>
+
+      <!-- Botão de Cadastro -->
+      <button type="submit">Cadastrar Anúncio</button>
+    </form>
+  </div>
+
+  <!-- Mensagem de Feedback -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="messages">
+        {% for category, message in messages %}
+          <p class="message {{ category }}">{{ message }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Arinar DeepWeb. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>

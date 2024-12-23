@@ -1,0 +1,111 @@
+/* Hero Section */
+.hero {
+  text-align: center;
+  color: #ffffff;
+  padding: 4rem 2rem;
+  background: rgba(18, 18, 18, 0.8); /* Fundo semi-transparente sobre a imagem */
+}
+
+.hero h1 {
+  font-family: 'Special Elite', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  margin-bottom: 2rem;
+}
+
+.hero .btn, .hero .btn-secondary {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  margin: 0.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.hero .btn {
+  background: #00bcd4;
+  color: #121212;
+}
+
+.hero .btn-secondary {
+  background: #555555;
+  color: #ffffff;
+}
+
+/* Itens Disponíveis */
+.itens-disponiveis {
+  color: #ffffff;
+  padding: 2rem 1rem;
+}
+
+.itens-disponiveis h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #00bcd4;
+}
+
+/* Grid de Anúncios */
+.anuncios-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Padrão: 2 anúncios lado a lado */
+  gap: 1rem;
+  justify-content: center;
+}
+
+.anuncio {
+  background: rgba(40, 40, 40, 0.8);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.anuncio img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.anuncio p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Configurações Responsivas */
+@media (min-width: 768px) {
+  .anuncios-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .anuncios-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 390px) {
+  .anuncios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 320px) {
+  .anuncios-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Rodapé */
+footer {
+  background: rgba(18, 18, 18, 0.9);
+  text-align: center;
+  padding: 1rem 0;
+  color: #ffffff;
+}

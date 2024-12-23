@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ anuncio[3] }} - WS Trade</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/detalhes.css') }}">
+</head>
+<body>
+  <div class="detalhes-container">
+    <h1>{{ anuncio[3] }}</h1>
+    <img src="{{ url_for('static', filename=anuncio[7]) }}" alt="{{ anuncio[3] }}">
+    <p><strong>Tipo:</strong> {{ anuncio[1] }}</p>
+    <p><strong>Categoria:</strong> {{ anuncio[2] }}</p>
+    <p><strong>Descrição:</strong> {{ anuncio[6] }}</p>
+    <p><strong>Valor:</strong> R$ {{ "%.2f"|format(anuncio[4]) }}</p>
+    <p><strong>Criado por:</strong> {{ anuncio[8] }}</p>
+  </div>
+</body>
+</html>

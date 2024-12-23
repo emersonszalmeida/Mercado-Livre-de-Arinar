@@ -1,0 +1,93 @@
+/* Centralizar título */
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Área de Upload */
+#drop-area {
+  border: 2px dashed #00bcd4;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+  margin: 0 auto 2rem auto;
+  width: 80%;
+  max-width: 600px;
+}
+
+#drop-area:hover {
+  background-color: #e9f7fa;
+}
+
+#upload-message {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+#file-input {
+  display: none;
+}
+
+#no-images {
+  color: #888;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Pré-visualização */
+#image-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  cursor: grab;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.image-wrapper .remove-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.7rem;
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#save-button {
+  width: 80%;
+  max-width: 400px;
+  display: block;
+  margin: 2rem auto;
+  padding: 0.8rem;
+  background-color: #00bcd4;
+  color: #121212;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#save-button:hover {
+  background-color: #0098a3;
+}
